@@ -30,7 +30,9 @@
 				      <td>${product.prodName}</td>
 				      <td>${product.prodDesc}</td>
 				      <td>${product.prodPrice}</td>
-				      <td><a href="delete/${product.id}"><i class="fas fa-trash" aria-hidden="true"></i></a></td>
+				      <td><a href="delete/${product.id}"><i class="fas fa-trash text-danger" aria-hidden="true"></i></a>
+				      	<a href="update/${product.id}"><i class="fas fa-pen-nib text-primary" aria-hidden="true"></i></a>
+				      </td>
 				    </tr>
 				   </c:forEach>
 				  </tbody>

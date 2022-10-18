@@ -40,7 +40,7 @@ public class MainController {
 	public RedirectView handleForm(@ModelAttribute Product product, HttpServletRequest request) {
 		RedirectView redirectView = new RedirectView();
 		this.productDao.createProduct(product);
-		System.out.println("Product successfully created");
+		System.out.println("Product successfully created or updated");
 		redirectView.setUrl(request.getContextPath() + "/");
 		return redirectView;
 	}
@@ -54,4 +54,14 @@ public class MainController {
 		redirectView.setUrl(request.getContextPath() + "/");
 		return redirectView;
 	}
+	
+	
+	@RequestMapping("/update/{productId}")
+	public String formUpdate(@PathVariable("productId") int productId,Model model) {
+		Product product=this.productDao.getProduct(productId);
+		model.addAttribute("product",product);
+		return "update_form";
+	}
+	
+	 
 }
